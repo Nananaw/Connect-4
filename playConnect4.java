@@ -7,8 +7,14 @@ public class playConnect4
     while(game.winner()==0 && !game.isFull())
     {
       game.alterBoard();
+      if(game.winner() != 0 || game.isFull())
+      {
+        game.printBoard();
+        break;
+      }
       game.computerAlter();
       game.printBoard();
     }
+    game.printWinner();
   }
 }

@@ -47,6 +47,23 @@ public class Connect4
     }
   }
   
+  //prints the winner of the game
+  public void printWinner()
+  {
+    if(winner() == 1)
+    {
+      System.out.println("You won!");
+    }
+    else if(winner() == -1)
+    {
+      System.out.println("You lost!");
+    }
+    else
+    {
+      System.out.println("Tie.");
+    }
+  }
+  
   //returns false if column if invalid
   //returns true if column is valid and can put piece in that column
   //return false otherwise
@@ -184,7 +201,7 @@ public class Connect4
   //to be completed
   public int guess()
   {
-    return 1;
+    return 0;
   }
   
   //performs minimax buts makes a guess at the maximum depth
@@ -195,7 +212,9 @@ public class Connect4
     if(depth >= maxDepth)
       return guess();
     if(winner()!=0 || isFull())
-      return winner();
+    {
+      return (100 * winner()) * (maximizingPlayer ? -1 : 1);
+    }
     
     //recursive case for maximizing
     if(maximizingPlayer)
