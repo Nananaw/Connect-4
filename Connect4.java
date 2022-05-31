@@ -169,7 +169,33 @@ public class Connect4
     }
     
     //checking for diagonal wins
-    //to be completed
+    for(int i=0; i<board.length-3; i++)
+    {
+      for(int j=0; j<board[0].length-3; j++)
+      {
+        if(board[i][j] == board[i+1][j+1] && board[i][j] == board[i+2][j+2] && board[i][j] == board[i+3][j+3])
+        {
+          if(board[i][j] == player)
+            return 1;
+          else if(board[i][j] == computer)
+            return -1;
+        }
+      }
+    }
+    
+    for(int i=0; i<board.length-3; i++)
+    {
+      for(int j=3; j<board[0].length; j++)
+      {
+        if(board[i][j] == board[i+1][j-1] && board[i][j] == board[i+2][j-2] && board[i][j] == board[i+3][j-3])
+        {
+          if(board[i][j] == player)
+            return 1;
+          else if(board[i][j] == computer)
+            return -1;
+        }
+      }
+    }
     
     return 0;
   }
